@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="card mt-3">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center">Create new activity</h2>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3 mx-2">
+            <div class="col-md-6">
+                <input class="form-control" [(ngModel)]="newActivityTitle" placeholder="Activity">
+            </div>
+            <div class="col-md-2">
+                <input class="form-control" [(ngModel)]="newActivityDate" type="date" placeholder="Date of Activity">
+            </div>
+            <div class="col-md-2">
+                <input class="form-control" [(ngModel)]="newActivityTime" type="time" placeholder="Time of Activity">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary w-100" (click)="addActivity()" >Add</button>
+            </div>
+        </div>
+    </div>
+    <h2 class="text-center mt-5">Activities</h2>
+    <ul class="list-group mt-3">
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let activity of activities, index as i">  
+            {{i+1}} {{activity.title}} {{activity.date | date:'dd.MM.yyyy'}} {{activity.time}}
+            <button class="btn btn-danger" (click)="deleteActivity(i)">Delete</button>
+        </li>
+    </ul>
+</div>
